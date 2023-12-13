@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Sentiment Analysis</title>
+</head>
+<body>
+    <h1>IMDb Sentiment Analysis</h1>
+    
+    <form action="/predict" method="post">
+        <label for="review">Enter your movie review:</label>
+        <textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <p><strong>Prediction:</strong> {{ prediction }}</p>
+        <p><strong>Review:</strong> {{ review }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</body>
+</html>
